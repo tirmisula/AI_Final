@@ -40,8 +40,8 @@ def normal_distribution(x, mean, standard_deviation):
 
 
 def normal_wrapper(mean, standard_deviation):
-    def normal(x):
-        return normal_distribution(x, mean, standard_deviation)
+    def normal(x, index):
+        return normal_distribution(x, mean[index], standard_deviation[index])
     return normal
 
 
@@ -49,7 +49,7 @@ def calculate_probablitiy(feature, probablity_function):
     limit = len(feature)
     probablity = 1
     for index in range(limit):
-        probablity *= probablity_function(feature[index])
+        probablity *= probablity_function(feature[index], index)
 
     return probablity_function
 
